@@ -19,7 +19,6 @@ function passlist()
     var getshorturl=0;
     var longurl = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
    const access_token = '7472f1a6e829e3450d98eaaa534f4ceb988e4311';
-  try{
   $.ajax({
     url: 'https://api-ssl.bitly.com/v4/shorten',
     type: 'post',
@@ -33,19 +32,18 @@ function passlist()
     },
     dataType: 'json',
     success: function(data) {
+    getshorturl = 1;
     document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
-    //copyToClipboard("sharelist");
     copyToClipboard(data.link);
-    //alert("ShoppingList URL Copied");
-    }
-  });
-    } catch(err) {
-   //alert("Error : "+ err);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    //alert("Error : "+ err);
     document.getElementById("sharelist").innerHTML = 'Share List:\n' + longurl;
     //copyToClipboard("sharelist");
     copyToClipboard(longurl);
     //alert("ShoppingList URL Copied");
-}
+    }  
+  });
 }
 
 
