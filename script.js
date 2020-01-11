@@ -17,7 +17,7 @@ function get(name){
 function passlist()
 {
     var getshorturl=0;
-    var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+    var longurl = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
    const access_token = '7472f1a6e829e3450d98eaaa534f4ceb988e4311';
   try{
   $.ajax({
@@ -25,7 +25,7 @@ function passlist()
     type: 'post',
     data: JSON.stringify({
       domain: 'bit.ly',
-      url
+      longurl
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -41,9 +41,9 @@ function passlist()
   });
     } catch(err) {
    //alert("Error : "+ err);
-    document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + longurl;
     //copyToClipboard("sharelist");
-    copyToClipboard(url);
+    copyToClipboard(longurl);
     //alert("ShoppingList URL Copied");
 }
 }
