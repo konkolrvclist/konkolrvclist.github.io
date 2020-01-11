@@ -36,13 +36,9 @@ function passlist()
         getshorturl = 1;
                 document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
                 copyToClipboard(data.link);
-                // copyToClipboard('sharelist');
-                 //alert("ShoppingList URL Copied");
-
     }).fail(function(data) {
-         document.getElementById("sharelist").innerHTML = 'Share List:\n' + longurl;
-    //copyToClipboard("sharelist");
-    copyToClipboard(longurl);
+       document.getElementById("sharelist").innerHTML = 'Share List:\n' + longurl;
+       copyToClipboard(longurl);
     });
   });
 }
