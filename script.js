@@ -16,13 +16,52 @@ function get(name){
 //vFinal ShareList via bitly api
 function passlist()
 {
+    var getshorturl=0;
+    var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
+
+    var params = {
+        "long_url" : url           
+    };
+
+    $.ajax({
+        url: "https://api-ssl.bitly.com/v4/shorten",
+        cache: false,
+        dataType: "json",
+        method: "POST",
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+        },
+        data: JSON.stringify(params)
+    }).done(function(data) {
+        console.log(data);
+         getshorturl = 1;
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data;
+                copyToClipboard(data);
+                // copyToClipboard('sharelist');
+                 //alert("ShoppingList URL Copied");
+
+    }).fail(function(data) {
+        //alert("Error : "+ err);
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+    //copyToClipboard("sharelist");
+    copyToClipboard(long_url);
+    });
+    
+}
+
+
+//vFinal ShareList via bitly api
+function passlist2()
+{
    var getshorturl=0;
    var login = "rvcjscourse";
    var api_key = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
    var long_url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
   try{
   $.getJSON(
-             "https://api-ssl.bitly.com/v3/shorten?callback=?",
+             "https://api-ssl.bitly.com/v4/shorten?callback=?",
               {
              "format": "json",
               "apiKey": api_key,
@@ -45,6 +84,7 @@ function passlist()
     //alert("ShoppingList URL Copied");
 }
 }
+
 //vFinal share function
 function share()
 {
