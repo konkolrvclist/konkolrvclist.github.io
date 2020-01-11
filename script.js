@@ -143,7 +143,7 @@ function savecookie()
    var date = new Date();
    //keeps for a year
     date.setTime(date.getTime() + Number(365) * 3600 * 1000);
-   document.cookie = 'konkollist' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
+   document.cookie = 'rvcjscourse' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
 }
 
 
