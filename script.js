@@ -18,37 +18,34 @@ function passlist()
 {
     var getshorturl=0;
     var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-   var long_url2 = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-    var params = {
-        "long_url" : url           
-    };
-
-    $.ajax({
-        url: "https://api-ssl.bitly.com/v4/shorten",
-        cache: false,
-        dataType: "json",
-        method: "POST",
-        contentType: "application/json",
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-        },
-        data: JSON.stringify(params)
-    }).done(function(data) {
-        //console.log(data.url);
-         getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.url;
-                copyToClipboard(data.url);
-                // copyToClipboard('sharelist');
-                 //alert("ShoppingList URL Copied");
-
-    }).fail(function(data) {
-        //alert("Error : "+ err);
+   const access_token = '8324dba029eabe687eaa842b81d508a45b5b84f0';
+  try{
+  $.ajax({
+    url: 'https://api-ssl.bitly.com/v4/shorten',
+    type: 'post',
+    data: JSON.stringify({
+      domain: 'bit.ly',
+      url
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + access_token
+    },
+    dataType: 'json',
+    success: function(data) {
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
+    //copyToClipboard("sharelist");
+    copyToClipboard(data.link);
+    //alert("ShoppingList URL Copied");
+    }
+  });
+    } catch(err) {
+   //alert("Error : "+ err);
     document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
     //copyToClipboard("sharelist");
     copyToClipboard(url);
-    });
-    
+    //alert("ShoppingList URL Copied");
+}
 }
 
 
