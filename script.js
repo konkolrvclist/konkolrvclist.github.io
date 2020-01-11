@@ -19,6 +19,9 @@ function passlist()
     var getshorturl=0;
     var longurl = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
    const access_token = '7472f1a6e829e3450d98eaaa534f4ceb988e4311';
+    var params = {
+        "long_url" : longurl           
+    };
  $.ajax({
         url: "https://api-ssl.bitly.com/v4/shorten",
         cache: false,
@@ -28,7 +31,7 @@ function passlist()
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + access_token);
         },
-        data: JSON.stringify(longurl)
+        data: JSON.stringify(params)
     }).done(function(data) {
         getshorturl = 1;
                 document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.link;
