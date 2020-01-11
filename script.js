@@ -34,8 +34,8 @@ function passlist()
         data: JSON.stringify(params)
     }).done(function(data) {
         getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.link;
-                copyToClipboard(response.data.link);
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
+                copyToClipboard(data.link);
                 // copyToClipboard('sharelist');
                  //alert("ShoppingList URL Copied");
 
