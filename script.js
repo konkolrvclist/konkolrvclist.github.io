@@ -19,7 +19,7 @@ function passlist()
     var getshorturl=0;
     var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
     var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-
+   var long_url2 = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
     var params = {
         "long_url" : url           
     };
@@ -35,16 +35,16 @@ function passlist()
         },
         data: JSON.stringify(params)
     }).done(function(data) {
-        console.log(data);
+        //console.log(data.url);
          getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data;
-                copyToClipboard(data);
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.url;
+                copyToClipboard(data.url);
                 // copyToClipboard('sharelist');
                  //alert("ShoppingList URL Copied");
 
     }).fail(function(data) {
         //alert("Error : "+ err);
-    document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url2;
     //copyToClipboard("sharelist");
     copyToClipboard(long_url);
     });
