@@ -18,7 +18,7 @@ function passlist()
 {
     var getshorturl=0;
     var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-   const access_token = '8324dba029eabe687eaa842b81d508a45b5b84f0';
+   const access_token = '7472f1a6e829e3450d98eaaa534f4ceb988e4311';
   try{
   $.ajax({
     url: 'https://api-ssl.bitly.com/v4/shorten',
