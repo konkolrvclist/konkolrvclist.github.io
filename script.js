@@ -17,8 +17,8 @@ function get(name){
 function passlist()
 {
    var getshorturl=0;
-   var login = "rvcjscourse";
-   var api_key = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
+   var login = "6b80654d8b6b849cada97cbaa486c54bdb621ed6";
+   var api_key = "1db46711ec160d3f611fc6c55c5d599d8a5a1465";
    var long_url = "https://rvclist.github.io/index.html?list="+ shoppinglist;
   try{
   $.getJSON(
