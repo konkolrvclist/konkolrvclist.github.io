@@ -16,7 +16,29 @@ function get(name){
 //v4.1 ShareList via bitly api
 function passlist2()
 {
- 
+ var url = $(this).attr("href");
+    var accessToken = "token";
+
+    var params = {
+        "long_url" : url           
+    };
+
+    $.ajax({
+        url: "https://api-ssl.bitly.com/v4/shorten",
+        cache: false,
+        dataType: "json",
+        method: "POST",
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+        },
+        data: JSON.stringify(params)
+    }).done(function(data) {
+        console.log(data);
+
+    }).fail(function(data) {
+        console.log(data);
+    });
 }
 
 //v4.1 ShareList via bitly api
