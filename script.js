@@ -22,7 +22,7 @@ function passlist()
     var params = {
         "long_url" : url           
     };
-
+ alert(url);
     $.ajax({
         url: "https://api-ssl.bitly.com/v4/shorten",
         cache: false,
@@ -34,10 +34,10 @@ function passlist()
         },
         data: JSON.stringify(params)
     }).done(function(data) {
-       alert(data.alink);
+        alert(data.link);
         getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
-                copyToClipboard(response.data.url);
+        document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
+        copyToClipboard(data.link);
     }).fail(function(data) {
         alert(data.link);
          //alert("Error : "+ err);
