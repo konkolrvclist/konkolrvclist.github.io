@@ -14,43 +14,13 @@ function get(name){
     if(num<0)  return url;
 }
 //v4.1 ShareList via bitly api
-function passlist()
+function passlist2()
 {
-  var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-
-    var params = {
-        "long_url" : url           
-    };
- alert(url);
-    $.ajax({
-        url: "https://api-ssl.bitly.com/v4/shorten",
-        cache: false,
-        dataType: "json",
-        method: "POST",
-        contentType: "application/json",
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-        },
-        data: JSON.stringify(params)
-    }).done(function(data) {
-        alert(data.link);
-        getshorturl = 1;
-        document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
-        copyToClipboard(data.link);
-    }).fail(function(data) {
-        alert(data.link);
-         //alert("Error : "+ err);
-    document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
-    //copyToClipboard("sharelist");
-    copyToClipboard(url);
-    //alert("ShoppingList URL Copied");
-    });
-  });
+ 
 }
 
 //v4.1 ShareList via bitly api
-function passlist2()
+function passlist()
 {
    var getshorturl=0;
    var login = "o_3iokgmm945";
