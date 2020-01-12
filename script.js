@@ -34,10 +34,10 @@ function passlist2()
         },
         data: JSON.stringify(params)
     }).done(function(data) {
-        console.log(data);
+        alert(data.link);
 
     }).fail(function(data) {
-        console.log(data);
+        alert(data.link);
     });
 }
 
