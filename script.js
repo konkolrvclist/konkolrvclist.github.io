@@ -16,6 +16,42 @@ function get(name){
 //v4.1 ShareList via bitly api
 function passlist()
 {
+  var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
+
+    var params = {
+        "long_url" : url           
+    };
+
+    $.ajax({
+        url: "https://api-ssl.bitly.com/v4/shorten",
+        cache: false,
+        dataType: "json",
+        method: "POST",
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+        },
+        data: JSON.stringify(params)
+    }).done(function(data) {
+       alert(data.alink);
+        getshorturl = 1;
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
+                copyToClipboard(response.data.url);
+    }).fail(function(data) {
+        alert(data.link);
+         //alert("Error : "+ err);
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
+    //copyToClipboard("sharelist");
+    copyToClipboard(url);
+    //alert("ShoppingList URL Copied");
+    });
+  });
+}
+
+//v4.1 ShareList via bitly api
+function passlist2()
+{
    var getshorturl=0;
    var login = "o_3iokgmm945";
    var api_key = "R_f2f3c9387a374e3fc6bf4b1ec2c945c4";
@@ -45,6 +81,7 @@ function passlist()
     //alert("ShoppingList URL Copied");
 }
 }
+
 //v4.1 share function
 function share()
 {
