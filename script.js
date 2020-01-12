@@ -13,53 +13,16 @@ function get(name){
     if(num>=0) return url.substr(0,num);
     if(num<0)  return url;
 }
-//vFinal ShareList via bitly api
+//v4.1 ShareList via bitly api
 function passlist()
 {
-    var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-
-    var params = {
-        "long_url" : url           
-    };
-
-    $.ajax({
-        url: "https://api-ssl.bitly.com/v4/shorten",
-        cache: false,
-        dataType: "json",
-        method: "POST",
-        contentType: "application/json",
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-        },
-        data: JSON.stringify(params)
-    }).done(function(data) {
-       alert(data.link);
-        getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
-                copyToClipboard(response.data.url);
-    }).fail(function(data) {
-        alert(data.link);
-         //alert("Error : "+ err);
-    document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
-    //copyToClipboard("sharelist");
-    copyToClipboard(url);
-    //alert("ShoppingList URL Copied");
-    });
-  });
-}
-
-
-//vFinal ShareList via bitly api
-function passlist2()
-{
    var getshorturl=0;
-   var login = "rvcjscourse";
-   var api_key = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-   var long_url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+   var login = "o_3iokgmm945";
+   var api_key = "R_f2f3c9387a374e3fc6bf4b1ec2c945c4";
+   var long_url = "https://rvclist.github.io/index.html?list="+ shoppinglist;
   try{
   $.getJSON(
-             "https://api-ssl.bitly.com/v4/shorten?callback=?",
+             "https://api-ssl.bitly.com/v3/shorten?callback=?",
               {
              "format": "json",
               "apiKey": api_key,
@@ -82,8 +45,7 @@ function passlist2()
     //alert("ShoppingList URL Copied");
 }
 }
-
-//vFinal share function
+//v4.1 share function
 function share()
 {
    passlist();
@@ -92,7 +54,7 @@ function share()
 function copyToClipboard(text) {
    window.prompt("Copy & Share List!", text);
 }
-//v4.0 Add popup describing app when visitors load webpage the first time
+
 window.onload = function() {
     alert("Welcome to 'Shopping List' App!\n\nCreated by Rock Valley College\n**Javascript(Web233) Students**\n\nQuestions?\nemail Professor Chuck Konkol\nc.konkol@rockvalleycollege.edu\n\nRegister @ RockValleyCollege.edu");
     populateshoppinglistonload();
@@ -123,11 +85,8 @@ function remove_unwanted(str) {
   if ((str===null) || (str===''))  
        return false;  
  else  
-   str = str.toString();
-    //clean space
+   str = str.toString();  
    str = str.replace(/%20/g, " ");
-    //clean !
-    str = str.replace(/%21/g, "!");
    str = str.replace(/%24/g, "$"); 
    str = str.replace(/%7C/g, " | ");
   return str.replace(/[^\x20-\x7E]/g, '');  
@@ -137,11 +96,11 @@ function remove_unwanted(str) {
 //v 4.0 save cookie
 function savecookie()
 {
-  delete_cookie('rvcjscourse');
+  delete_cookie('konkollist');
    var date = new Date();
    //keeps for a year
     date.setTime(date.getTime() + Number(365) * 3600 * 1000);
-   document.cookie = 'rvcjscourse' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
+   document.cookie = 'konkollist' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
 }
 
 
@@ -156,7 +115,7 @@ function populateshoppinglistonload()
   shoppinglist = [];
   addtocart = [];
   //load cookie into array
-  var y = readCookie('rvcjscourse');
+  var y = readCookie('konkollist');
   //remove unwanted chars and format
   y = remove_unwanted(y); 
   //spit array by comma %2C
