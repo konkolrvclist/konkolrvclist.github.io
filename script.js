@@ -34,10 +34,16 @@ function passlist()
         },
         data: JSON.stringify(params)
     }).done(function(data) {
-        alert(data.link);
-
+        //alert(data.link);
+         getshorturl = 1;
+         document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
+         copyToClipboard(data.link);
     }).fail(function(data) {
-        alert(data.link);
+        //alert(data.link);
+      document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
+      //copyToClipboard("sharelist");
+      copyToClipboard(url);
+      //alert("ShoppingList URL Copied");
     });
 }
 
