@@ -16,29 +16,35 @@ function get(name){
 //vFinal ShareList via bitly api
 function passlist()
 {
-    var getshorturl=0;
-    var longurl = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-   const access_token = '7472f1a6e829e3450d98eaaa534f4ceb988e4311';
+    var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
+
     var params = {
-        "long_url" : longurl           
+        "long_url" : url           
     };
- $.ajax({
+
+    $.ajax({
         url: "https://api-ssl.bitly.com/v4/shorten",
         cache: false,
         dataType: "json",
         method: "POST",
         contentType: "application/json",
         beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + access_token);
+            xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
         },
         data: JSON.stringify(params)
     }).done(function(data) {
+       alert(data.link);
         getshorturl = 1;
-                document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
-                copyToClipboard(data.link);
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
+                copyToClipboard(response.data.url);
     }).fail(function(data) {
-       document.getElementById("sharelist").innerHTML = 'Share List:\n' + longurl;
-       copyToClipboard(longurl);
+        alert(data.link);
+         //alert("Error : "+ err);
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
+    //copyToClipboard("sharelist");
+    copyToClipboard(url);
+    //alert("ShoppingList URL Copied");
     });
   });
 }
