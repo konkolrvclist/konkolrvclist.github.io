@@ -70,7 +70,7 @@ function copyToClipboard(text) {
   document.body.appendChild(passbyurl);
   passbyurl.focus();
   passbyurl.select();
-  var copytext = document.getElementById("textarea");
+  var copytext = document.getElementsByTagName("textarea");
   copytext.select();
   copytext.setSelectionRange(0,99999);
   document.execCommand("copy");
