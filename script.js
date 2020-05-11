@@ -23,6 +23,10 @@ function passlist()
         "long_url" : url           
     };
 
+   var params = {
+        "long_url" : url           
+    };
+
     $.ajax({
         url: "https://api-ssl.bitly.com/v4/shorten",
         cache: false,
@@ -33,18 +37,14 @@ function passlist()
             xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
         },
         data: JSON.stringify(params)
-    }).done(function(data) {
-        //alert(data.link);
-         getshorturl = 1;
-         document.getElementById("sharelist").innerHTML = 'Share List:\n' + data.link;
-         copyToClipboard(data.link);
-    }).fail(function(data) {
-        //alert(data.link);
-      document.getElementById("sharelist").innerHTML = 'Share List:\n' + url;
-      //copyToClipboard("sharelist");
-      copyToClipboard(url);
-      //alert("ShoppingList URL Copied");
-    });
+	}).done(function(data) {
+		getshorturl = 1;
+		document.getElementById("sharelist").innerHTML = "The URL to share the list:\n" + data.link;
+		copyToClipboard(data.link);
+	}).fail(function(data) {
+		document.getElementById("sharelist").innerHTML = "The URL to share the list:\n" + url;
+		copyToClipboard(URL);
+	});
 }
 
 //v4.1 ShareList via bitly api
