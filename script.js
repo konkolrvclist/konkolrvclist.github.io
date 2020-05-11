@@ -65,7 +65,7 @@ function share()
 }
 //v4.1 prompt message to copy URL
 function copyToClipboard(text) {
-  var passbyurl = document.createElement("textarea");
+  const passbyurl = document.createElement('textarea');
   passbyurl.value = text;
   document.body.appendChild(passbyurl);
   passbyurl.select();
