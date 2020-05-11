@@ -1,5 +1,10 @@
 window.onload = function() {
-    alert("Welcome to 'Shopping List' App!\n\nCreated by Rock Valley College\n**Javascript(Web233) Students**\n\nQuestions?\nemail Professor Chuck Konkol\nc.konkol@rockvalleycollege.edu\n\nRegister @ RockValleyCollege.edu");
+    alert("Thanks for using the \"e-Shopper: List Tracker\" App!\n\n" +
+			"Created by: Curt Dunmire\n" +
+			"Enrolled in: JavaScript Class (Web233), yr. 2020\n\n" +
+			"Questions about the JavaScript class can be directed to\n" +
+			"Professor Chuck Konkol at: c.konkol@rockvalleycollege.edu\n\n" +
+			"Register for classes @ RockValleyCollege.edu\n\n");
     populateshoppinglistonload();
     displayShoppinglists();
     clearFocus();
