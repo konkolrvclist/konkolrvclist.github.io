@@ -68,10 +68,8 @@ function copyToClipboard(text) {
   var passbyurl = document.createElement("textarea");
   passbyurl.value = text;
   document.body.appendChild(passbyurl);
-  passbyurl.focus();
   passbyurl.select();
-  passbyurl.setSelectionRange(0,99999);
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(passbyurl);
   alert("URL has been copied. Ready to share: " + text);
   //window.prompt("Copy & Share List!", text);
