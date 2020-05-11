@@ -27,9 +27,11 @@ function PutDate() {
 //v4.1 ShareList via bitly api
 function passlist()
 {
- var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
-    var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
-
+ //var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+ //   var accessToken = "7472f1a6e829e3450d98eaaa534f4ceb988e4311";
+var url = "https://konkolrvclist.github.io/index.html?list="+ shoppinglist;
+var accessToken = "9b581ed4b140975008856f05f396a50dba9689ae";
+	
     var params = {
         "long_url" : url           
     };
