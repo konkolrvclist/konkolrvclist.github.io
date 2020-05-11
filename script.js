@@ -1,5 +1,11 @@
-//v 4.0 save / get array via cookies
-//v 4.0 read cookie on load and display
+window.onload = function() {
+    alert("Welcome to 'Shopping List' App!\n\nCreated by Rock Valley College\n**Javascript(Web233) Students**\n\nQuestions?\nemail Professor Chuck Konkol\nc.konkol@rockvalleycollege.edu\n\nRegister @ RockValleyCollege.edu");
+    populateshoppinglistonload();
+    displayShoppinglists();
+    clearFocus();
+     PutDate();
+};
+
 
 //v4.1 get values via URL
 function get(name){
@@ -12,6 +18,11 @@ function get(name){
     num = url.search("&");
     if(num>=0) return url.substr(0,num);
     if(num<0)  return url;
+}
+function PutDate() {
+	var d = new Date();
+	var n = d.toLocaleDateString();
+	document.getElementById("Date").innerHTML = "Current date: <span class=\"Hilite\">" + n + "</span>";
 }
 //v4.1 ShareList via bitly api
 function passlist()
@@ -98,13 +109,6 @@ function copyToClipboard(text) {
   //window.prompt("Copy & Share List!", text);
     
 }
-
-window.onload = function() {
-    alert("Welcome to 'Shopping List' App!\n\nCreated by Rock Valley College\n**Javascript(Web233) Students**\n\nQuestions?\nemail Professor Chuck Konkol\nc.konkol@rockvalleycollege.edu\n\nRegister @ RockValleyCollege.edu");
-    populateshoppinglistonload();
-    displayShoppinglists();
-    clearFocus();
-};
 
 function about()
 {
