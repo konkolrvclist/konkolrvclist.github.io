@@ -52,11 +52,9 @@ function passlist()
 		getshorturl = 1;
 		document.getElementById("sharelist").innerHTML = "The URL to share the list:\n" + data.link;
 		copyToClipboard(data.link);
-	        alert("URL has been copied. Ready to share: " + data.link);
 	}).fail(function(data) {
 		document.getElementById("sharelist").innerHTML = "The URL to share the list:\n" + url;
 		copyToClipboard(URL);
-	        alert("URL has been copied. Ready to share: " + URL);
 	});
 }
 
@@ -73,6 +71,7 @@ function copyToClipboard(text) {
   passbyurl.select();
   document.execCommand('copy');
   document.body.removeChild(passbyurl);
+  alert("URL has been copied. Ready to share: " + data.link);
 }
 
 function about()
