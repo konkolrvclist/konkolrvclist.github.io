@@ -79,9 +79,8 @@ function about()
     alert("Thanks for using the \"e-Shopper: List Tracker\" App!\n\n" +
 			"Created by: Curt Dunmire\n" +
 			"Enrolled in: JavaScript Class (Web233), yr. 2020\n\n" +
-			"Questions about the JavaScript class can be directed to\n" +
-			"Professor Chuck Konkol at: c.konkol@rockvalleycollege.edu\n\n" +
-			"Register for classes @ RockValleyCollege.edu\n\n");
+			"Questions can be directed to\n" +
+			"Professor Chuck Konkol at: ckonkol@gmail.com\n\n");
 }
 //read cookie and return
 function readCookie(name) {
