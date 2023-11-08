@@ -71,7 +71,8 @@ function copyToClipboard(text) {
   passbyurl.select();
   document.execCommand('copy');
   document.body.removeChild(passbyurl);
-  alert("URL has been copied. Ready to share: " + text);
+  //alert("URL has been copied. Ready to share: " + text);
+  window.prompt("Copy & Share List!", text);
 }
 
 function about()
