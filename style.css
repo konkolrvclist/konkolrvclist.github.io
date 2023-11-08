@@ -53,7 +53,7 @@ label	{ float:right; padding-right: 5px; /*	text-indent: 5px; */	}
 #About, #shares	{ vertical-align: middle; background-color: #cef; padding: 2px 8px;
 		border-radius: 8px; font-size: 11pt; border-width: 1px; }
 
-#shares		{ background-color: #fea; }
+#shares		{ background-color: #02f31d; }
 #ShareButton	{ text-align: center; }
 
 
