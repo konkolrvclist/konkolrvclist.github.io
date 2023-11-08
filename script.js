@@ -1,5 +1,5 @@
 window.onload = function() {
-    about();
+    //about();
     populateshoppinglistonload();
     displayShoppinglists();
     clearFocus();
